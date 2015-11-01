@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-11-01T02:48:19Z" product-name="mp_referenzen">
+		<header/>
+		<body>
+			<trans-unit id="titel.description">
+				<source>titel</source>
+			</trans-unit>
+			<trans-unit id="teaser.description">
+				<source>teaser</source>
+			</trans-unit>
+			<trans-unit id="beschreibung.description">
+				<source>beschreibung</source>
+			</trans-unit>
+			<trans-unit id="baujahr.description">
+				<source>baujahr</source>
+			</trans-unit>
+			<trans-unit id="vorschaubild.description">
+				<source>vorschaubild</source>
+			</trans-unit>
+			<trans-unit id="hauptbilder.description">
+				<source>hauptbilder</source>
+			</trans-unit>
+			<trans-unit id="kategorie.description">
+				<source>kategorie</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
