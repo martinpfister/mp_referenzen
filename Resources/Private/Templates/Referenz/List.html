@@ -2,8 +2,9 @@
 
 <f:section name="main">
 <f:for each="{referenzs}" as="referenz">
-        <figure>
-            <f:link.action action="show" arguments="{referenz : referenz}">
+    <f:link.action action="show" arguments="{referenz : referenz}">
+        <figure class="effect-sadie" data-referenz="{referenz.uid}">
+
                 <img srcset="
                 {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 650c, height: 650c)} 650w,
                 {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 220c, height: 220c)} 220w,
@@ -11,8 +12,11 @@
                      sizes="(min-width: 36em) 33.3vw, 100vw"
                      src="{f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 110c, height: 110c)}"
                      alt="{referenz.vorschaubild.originalResource.originalFile.title}" />
-
-            </f:link.action>
+            <figcaption>
+                <h2>{referenz.titel}</h2>
+                <p>{referenz.teaser}</p>
+            </figcaption>
         </figure>
+    </f:link.action>
 </f:for>
 </f:section>

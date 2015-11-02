@@ -1,22 +1,20 @@
 
 <f:layout name="Default" />
 
-This Template is responsible for displaying a single view for a domain object
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Show.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Single View for Referenz</h1>
-
-<f:flashMessages renderMode="div" />
-<f:render partial="Referenz/Properties" arguments="{referenz:referenz}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Referenz</f:link.action>
+<div class="cd-container">
+    <img srcset="
+                {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 650c)} 650w,
+                {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 220c)} 220w,
+                {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 110c)} 110w"
+         sizes="(min-width: 36em) 33.3vw, 100vw"
+         src="{f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 640c)}"
+         alt="{referenz.vorschaubild.originalResource.originalFile.title}" />
+    <h2>{referenz.titel}</h2>
+    <f:render partial="Referenz/Properties" arguments="{referenz:referenz}" />
+    <span id="close-referenz">
+    <img src="typo3conf/ext/etter/Resources/Public/Template/dist/images/icons/carousel_close.png" width="65" height="65"  alt="Close">
+    </span>
+</div>
 </f:section>
