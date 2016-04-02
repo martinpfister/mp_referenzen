@@ -1,0 +1,21 @@
+{
+  "name": "pfister/mp_referenzen",
+  "description": "Basic List-Extension",
+
+  "license": ["GPL-2.0+"],
+  "type": "typo3-cms-extension",
+
+  "authors": [
+    {
+      "name": "Martin Pfister",
+      "email": "martin.pfister@posteo.ch",
+      "role": "Developer"
+    }
+  ],
+
+  "autoload": {
+    "psr-4": {
+        "Pfister\\MpReferenzen\\": "Classes/"
+    }
+  }
+}
