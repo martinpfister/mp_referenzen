@@ -32,8 +32,5 @@ page_ajax {
         pluginName = Gallery
         vendorName = Pfister
         controller = Referenz
-        view < plugin.tx_sttrafagms3import.view
-        persistence < plugin.tx_sttrafagms3import.persistence
-        settings < plugin.tx_sttrafagms3import.settings
     }
 }
