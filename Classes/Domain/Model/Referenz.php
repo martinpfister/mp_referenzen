@@ -6,7 +6,7 @@ namespace Pfister\MpReferenzen\Domain\Model;
  *
  *  Copyright notice
  *
- *  (c) 2015 Martin Pfister <mail@martinpfister.info>
+ *  (c) 2016 Martin Pfister <mail@martinpfister.info>
  *
  *  All rights reserved
  *
@@ -26,192 +26,212 @@ namespace Pfister\MpReferenzen\Domain\Model;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use \TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-/**
- * Referenz
- */
-class Referenz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
-	/**
-	 * titel
-	 *
-	 * @var string
-	 */
-	protected $titel = '';
+class Referenz extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
 
-	/**
-	 * teaser
-	 *
-	 * @var string
-	 */
-	protected $teaser = '';
+    /**
+     * titel
+     *
+     * @var string
+     */
+    protected $titel = '';
 
-	/**
-	 * beschreibung
-	 *
-	 * @var string
-	 */
-	protected $beschreibung = '';
+    /**
+     * teaser
+     *
+     * @var string
+     */
+    protected $teaser = '';
 
-	/**
-	 * baujahr
-	 *
-	 * @var string
-	 */
-	protected $baujahr = '';
+    /**
+     * beschreibung
+     *
+     * @var string
+     */
+    protected $beschreibung = '';
 
-	/**
-	 * vorschaubild
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	protected $vorschaubild = NULL;
+    /**
+     * baujahr
+     *
+     * @var string
+     */
+    protected $baujahr = '';
 
-	/**
-	 * hauptbilder
-	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-	 */
-	protected $hauptbilder = NULL;
+    /**
+     * vorschaubild
+     *
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     */
+    protected $vorschaubild = null;
 
-	/**
-	 * kategorie
-	 *
-	 * @var \Pfister\MpReferenzen\Domain\Model\Kategorie
-	 */
-	protected $kategorie = NULL;
+    /**
+     * hauptbilder
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @cascade remove
+     */
+    protected $hauptbilder = null;
 
-	/**
-	 * Returns the titel
-	 *
-	 * @return string $titel
-	 */
-	public function getTitel() {
-		return $this->titel;
-	}
+    /**
+     * kategorie
+     *
+     * @var \Pfister\MpReferenzen\Domain\Model\Kategorie
+     */
+    protected $kategorie = null;
 
-	/**
-	 * Sets the titel
-	 *
-	 * @param string $titel
-	 * @return void
-	 */
-	public function setTitel($titel) {
-		$this->titel = $titel;
-	}
 
-	/**
-	 * Returns the teaser
-	 *
-	 * @return string $teaser
-	 */
-	public function getTeaser() {
-		return $this->teaser;
-	}
+    /**
+     * __construct
+     */
+    public function __construct() {
+        $this->initStorageObjects();
+    }
 
-	/**
-	 * Sets the teaser
-	 *
-	 * @param string $teaser
-	 * @return void
-	 */
-	public function setTeaser($teaser) {
-		$this->teaser = $teaser;
-	}
+    /**
+     * Initializes all ObjectStorage properties
+     * Do not modify this method!
+     * It will be rewritten on each save in the extension builder
+     * You may modify the constructor of this class instead
+     *
+     * @return void
+     */
+    protected function initStorageObjects() {
+        $this->hauptbilder  = new ObjectStorage();
+    }
 
-	/**
-	 * Returns the beschreibung
-	 *
-	 * @return string $beschreibung
-	 */
-	public function getBeschreibung() {
-		return $this->beschreibung;
-	}
+    /**
+     * Returns the titel
+     *
+     * @return string $titel
+     */
+    public function getTitel() {
+        return $this->titel;
+    }
 
-	/**
-	 * Sets the beschreibung
-	 *
-	 * @param string $beschreibung
-	 * @return void
-	 */
-	public function setBeschreibung($beschreibung) {
-		$this->beschreibung = $beschreibung;
-	}
+    /**
+     * Sets the titel
+     *
+     * @param string $titel
+     * @return void
+     */
+    public function setTitel($titel) {
+        $this->titel = $titel;
+    }
 
-	/**
-	 * Returns the baujahr
-	 *
-	 * @return string $baujahr
-	 */
-	public function getBaujahr() {
-		return $this->baujahr;
-	}
+    /**
+     * Returns the teaser
+     *
+     * @return string $teaser
+     */
+    public function getTeaser() {
+        return $this->teaser;
+    }
 
-	/**
-	 * Sets the baujahr
-	 *
-	 * @param string $baujahr
-	 * @return void
-	 */
-	public function setBaujahr($baujahr) {
-		$this->baujahr = $baujahr;
-	}
+    /**
+     * Sets the teaser
+     *
+     * @param string $teaser
+     * @return void
+     */
+    public function setTeaser($teaser) {
+        $this->teaser = $teaser;
+    }
 
-	/**
-	 * Returns the vorschaubild
-	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $vorschaubild
-	 */
-	public function getVorschaubild() {
-		return $this->vorschaubild;
-	}
+    /**
+     * Returns the beschreibung
+     *
+     * @return string $beschreibung
+     */
+    public function getBeschreibung() {
+        return $this->beschreibung;
+    }
 
-	/**
-	 * Sets the vorschaubild
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $vorschaubild
-	 * @return void
-	 */
-	public function setVorschaubild(\TYPO3\CMS\Extbase\Domain\Model\FileReference $vorschaubild) {
-		$this->vorschaubild = $vorschaubild;
-	}
+    /**
+     * Sets the beschreibung
+     *
+     * @param string $beschreibung
+     * @return void
+     */
+    public function setBeschreibung($beschreibung) {
+        $this->beschreibung = $beschreibung;
+    }
 
-	/**
-	 * Returns the hauptbilder
-	 *
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $hauptbilder
-	 */
-	public function getHauptbilder() {
-		return $this->hauptbilder;
-	}
+    /**
+     * Returns the baujahr
+     *
+     * @return string $baujahr
+     */
+    public function getBaujahr() {
+        return $this->baujahr;
+    }
 
-	/**
-	 * Sets the hauptbilder
-	 *
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $hauptbilder
-	 * @return void
-	 */
-	public function setHauptbilder(\TYPO3\CMS\Extbase\Domain\Model\FileReference $hauptbilder) {
-		$this->hauptbilder = $hauptbilder;
-	}
+    /**
+     * Sets the baujahr
+     *
+     * @param string $baujahr
+     * @return void
+     */
+    public function setBaujahr($baujahr) {
+        $this->baujahr = $baujahr;
+    }
 
-	/**
-	 * Returns the kategorie
-	 *
-	 * @return \Pfister\MpReferenzen\Domain\Model\Kategorie $kategorie
-	 */
-	public function getKategorie() {
-		return $this->kategorie;
-	}
+    /**
+     * Returns the vorschaubild
+     *
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $vorschaubild
+     */
+    public function getVorschaubild() {
+        return $this->vorschaubild;
+    }
 
-	/**
-	 * Sets the kategorie
-	 *
-	 * @param \Pfister\MpReferenzen\Domain\Model\Kategorie $kategorie
-	 * @return void
-	 */
-	public function setKategorie(\Pfister\MpReferenzen\Domain\Model\Kategorie $kategorie) {
-		$this->kategorie = $kategorie;
-	}
+    /**
+     * Sets the vorschaubild
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $vorschaubild
+     * @return void
+     */
+    public function setVorschaubild(\TYPO3\CMS\Extbase\Domain\Model\FileReference $vorschaubild) {
+        $this->vorschaubild = $vorschaubild;
+    }
+
+    /**
+     * Returns the hauptbilder
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $hauptbilder
+     */
+    public function getHauptbilder() {
+        return $this->hauptbilder;
+    }
+
+    /**
+     * Sets the hauptbilder
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $hauptbilder
+     * @return void
+     */
+    public function setHauptbilder(ObjectStorage $hauptbilder) {
+        $this->hauptbilder = $hauptbilder;
+    }
+
+    /**
+     * Returns the kategorie
+     *
+     * @return \Pfister\MpReferenzen\Domain\Model\Kategorie $kategorie
+     */
+    public function getKategorie() {
+        return $this->kategorie;
+    }
+
+    /**
+     * Sets the kategorie
+     *
+     * @param \Pfister\MpReferenzen\Domain\Model\Kategorie $kategorie
+     * @return void
+     */
+    public function setKategorie(\Pfister\MpReferenzen\Domain\Model\Kategorie $kategorie) {
+        $this->kategorie = $kategorie;
+    }
 
 }

@@ -122,18 +122,9 @@ $GLOBALS['TCA']['tx_mpreferenzen_domain_model_referenz'] = array(
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim',
-				'wizards' => array(
-					'RTE' => array(
-						'icon' => 'wizard_rte2.gif',
-						'notNewRecords'=> 1,
-						'RTEonly' => 1,
-						'script' => 'wizard_rte.php',
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-						'type' => 'script'
-					)
-				)
+				'eval' => 'trim'
 			),
+			'defaultExtras' => 'richtext[]'
 		),
 		'baujahr' => array(
 			'exclude' => 1,

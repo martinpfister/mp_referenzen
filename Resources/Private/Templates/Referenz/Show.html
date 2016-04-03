@@ -3,18 +3,31 @@
 
 
 <f:section name="main">
-<div class="cd-container">
-    <img srcset="
-                {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 650c)} 650w,
-                {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 220c)} 220w,
-                {f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 110c)} 110w"
-         sizes="(min-width: 36em) 33.3vw, 100vw"
-         src="{f:uri.image(src: '{referenz.vorschaubild.originalResource.originalFile.uid}', width: 640c)}"
-         alt="{referenz.vorschaubild.originalResource.originalFile.title}" />
-    <h2>{referenz.titel}</h2>
-    <f:render partial="Referenz/Properties" arguments="{referenz:referenz}" />
-    <span id="close-referenz">
-    <img src="typo3conf/ext/etter/Resources/Public/Template/app/images/icons/carousel_close.png" width="65" height="65"  alt="Close">
-    </span>
-</div>
+
+
+    <div class="cd-container">
+
+        <ul class="bxslider">
+            <f:for each="{referenz.hauptbilder}" as="image">
+                <li>
+                    <img srcset="
+                            {f:uri.image(src: '{image.originalResource.originalFile.uid}', width: 650c)} 650w,
+                            {f:uri.image(src: '{image.originalResource.originalFile.uid}', width: 220c)} 220w,
+                            {f:uri.image(src: '{image.originalResource.originalFile.uid}', width: 110c)} 110w"
+                         sizes="(min-width: 36em) 33.3vw, 100vw"
+                         src="{f:uri.image(src: '{image.originalResource.originalFile.uid}', width: 640c)}"
+                         alt="{image.originalResource.originalFile.title}" />
+                </li>
+            </f:for>
+        </ul>
+
+
+        <h2>{referenz.titel}</h2>
+        <f:render partial="Referenz/Properties" arguments="{referenz:referenz}" />
+
+        <span id="close-referenz">
+            <img src="typo3conf/ext/etter/Resources/Public/Template/app/images/icons/carousel_close.png" width="65" height="65"  alt="Close">
+        </span>
+
+    </div>
 </f:section>
