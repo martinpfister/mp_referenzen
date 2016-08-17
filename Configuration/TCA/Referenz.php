@@ -21,6 +21,7 @@ $GLOBALS['TCA']['tx_mpreferenzen_domain_model_referenz'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
 			'config' => array(
 				'type' => 'select',
+                'renderType' => 'selectSingleBox',
 				'foreign_table' => 'sys_language',
 				'foreign_table_where' => 'ORDER BY sys_language.title',
 				'items' => array(
@@ -35,6 +36,7 @@ $GLOBALS['TCA']['tx_mpreferenzen_domain_model_referenz'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
 			'config' => array(
 				'type' => 'select',
+                'renderType' => 'selectSingleBox',
 				'items' => array(
 					array('', 0),
 				),
@@ -158,6 +160,7 @@ $GLOBALS['TCA']['tx_mpreferenzen_domain_model_referenz'] = array(
 			'label' => 'LLL:EXT:mp_referenzen/Resources/Private/Language/locallang_db.xlf:tx_mpreferenzen_domain_model_referenz.kategorie',
 			'config' => array(
 				'type' => 'select',
+                'renderType' => 'selectSingleBox',
 				'foreign_table' => 'tx_mpreferenzen_domain_model_kategorie',
 				'minitems' => 0,
 				'maxitems' => 1,
