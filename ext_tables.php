@@ -36,7 +36,7 @@ $GLOBALS['TCA']['tx_mpreferenzen_domain_model_referenz'] = array(
 		),
 		'searchFields' => 'titel,teaser,beschreibung,baujahr,vorschaubild,hauptbilder,kategorie,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Referenz.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_mpreferenzen_domain_model_referenz.gif'
+		'iconfile' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_mpreferenzen_domain_model_referenz.png'
 	),
 );
 
@@ -65,6 +65,6 @@ $GLOBALS['TCA']['tx_mpreferenzen_domain_model_kategorie'] = array(
 		),
 		'searchFields' => 'name,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Kategorie.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_mpreferenzen_domain_model_kategorie.gif'
+        'iconfile' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_mpreferenzen_domain_model_kategorie.png'
 	),
 );
